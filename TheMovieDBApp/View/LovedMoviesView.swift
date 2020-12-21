@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct LovedMoviesView: View {
-    @FetchRequest(fetchRequest: Favorites.fetchAllID)
-    var favoritedMovie: FetchedResults<Favorites>
     
     @Environment(\.managedObjectContext) var context
     
@@ -18,8 +16,7 @@ struct LovedMoviesView: View {
     
     var body: some View {
         ScrollView(.vertical) {
-            //            LazyVStack(alignment: .leading) {
-            if favoritedMovie.isEmpty {
+            if favoriteVM.fav.isEmpty {
                 VStack {
                     Spacer()
                     Text("You have no favorite movie")
@@ -29,16 +26,8 @@ struct LovedMoviesView: View {
                 .padding()
             } else {
                 LazyVStack(alignment: .leading) {
-//                    ForEach(favoritedMovie, id: \.self) { movie in
                     ForEach(favoriteVM.fav) { movie in
-//                        Text("\(movie.movie_id)")
                         FavoritedMovieView(movie_id: Int(movie.movie_id))
-//                        NavigationLink(
-//                            destination:
-//                                MovieDetailView(movie: movie),
-//                            label: {
-//                                MovieView(movie: movie)
-//                            })
                             .padding()
                     }
                 }
@@ -49,15 +38,9 @@ struct LovedMoviesView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarColor(backgroundColor: UIColor(named: "Primary"))
     }
-    
-    func createMovie(movie: FetchedResults<Favorites>.Element) -> MovieDetail {
-        return MovieDetail(id: Int(movie.movie_id), title: movie.title ?? "", overview: movie.overview ?? "", release:  movie.release_date ?? "", image: movie.image ?? "", rating: Float(movie.rating), ratingCount: Int(movie.rating_count))
-    }
+
 }
 
-//MovieDetail(id: movie.movie_id, title: movie.title, overview: movie.overview, release:  movie.release_date, image: movie.image, rating: movie.rating, ratingCount: movie.rating_count)
-//
-//    .init(id: Int(movie.movie_id), title: movie.title ?? "", overview: movie.overview ?? "", release: movie.release_date ?? "", image: movie.image ?? "")
 
 struct LovedMoviesView_Previews: PreviewProvider {
     static var previews: some View {

@@ -10,15 +10,10 @@ import Combine
 import CoreData
 
 class FavoriteViewModel: NSObject, ObservableObject {
-    var service = APIService()
-
-    var cancellable: AnyCancellable?
-
     @Published var favoritedMovie = [MovieDetail]()
 
     @Published var fav = [Favorites]()
 
-    var LovedMovie = [Int]()
 
     private let favoriteController: NSFetchedResultsController<Favorites>
 
@@ -35,39 +30,10 @@ class FavoriteViewModel: NSObject, ObservableObject {
             try favoriteController.performFetch()
             fav = favoriteController.fetchedObjects ?? []
             print("fetch core data \(fav.count)")
-            fetchMovie { (_) in
-//                print(:)
-            }
+
         } catch {
             print("failed to fetch items!")
         }
-    }
-    
-    func fetchMovie(completion: @escaping (MovieDetail) -> Void) {
-        var lovedMovie = [MovieDetail]()
-        self.favoritedMovie = []
-        
-        for data in fav {
-            let movie_id = Int(data.movie_id)
-            
-            cancellable = service.fetchSpecificMovie(movie_id: movie_id)
-                .sink(receiveCompletion: { completion in
-                    switch completion {
-                    case .failure(let error): print("Error \(error.localizedDescription)")
-                    case .finished: print("Publisher is finished")
-                        
-                    }
-                }, receiveValue: { data in
-                    self.favoritedMovie.append(data)
-//                    if lovedMovie.count == self.fav.count {
-//                        completion(lovedMovie)
-//                        self.favoritedMovie.append(contentsOf: lovedMovie)
-//                    }
-    //                completion(data)
-                })
-        }
-        
-        
     }
 
 

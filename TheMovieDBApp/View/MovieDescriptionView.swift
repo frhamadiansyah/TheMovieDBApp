@@ -47,7 +47,6 @@ struct MovieDescriptionView: View {
                             Image(systemName: checkLoved() ? "heart.fill" : "heart")
                                 .foregroundColor(.red)
                         })
-//                        .padding(.horizontal)
                     }
                     
                     Text(toDate(date: movie.release), style: .date)

@@ -25,7 +25,6 @@ struct MovieDetailView: View {
         ScrollView(.vertical) {
             LazyVStack(alignment: .leading) {
                 MovieDescriptionView(movie: movie)
-//                    .frame(maxHeight: UIScreen.main.bounds.height)
                     .padding()
                 
                 Text("Reviews")
@@ -33,10 +32,9 @@ struct MovieDetailView: View {
                     .padding(.horizontal)
                 
                 if favData.comments.isEmpty {
-                    Text("There is no comment")
+                    Text("There is no review")
                         .multilineTextAlignment(.center)
                         .foregroundColor(.secondary)
-//                        .bold()
                         .padding()
                 }
                 ForEach(favData.comments) { comment in

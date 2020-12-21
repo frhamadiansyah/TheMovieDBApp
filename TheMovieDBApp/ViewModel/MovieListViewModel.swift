@@ -17,7 +17,6 @@ class MovieListViewModel: ObservableObject {
     @Published var movie: MovieDetail?
     
     init(movie_id: Int) {
-        print("INIT INIT")
         fetchMovie(movie_id: movie_id) { _ in
             
         }

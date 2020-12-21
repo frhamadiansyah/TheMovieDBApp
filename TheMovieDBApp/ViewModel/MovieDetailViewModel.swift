@@ -19,10 +19,10 @@ class MovieDetailViewModel: ObservableObject {
     @Published var selectedMovie: MovieDetail? {
         willSet {
             prevMovie = selectedMovie
-            print("Before : \(selectedMovie)")
+            print("Before : \(selectedMovie?.title)")
         }
         didSet {
-            print("after : \(selectedMovie)")
+            print("after : \(selectedMovie?.title)")
             if prevMovie?.id != selectedMovie?.id {
                 commentPage = 1
                 fetchComment { _ in
@@ -42,33 +42,16 @@ class MovieDetailViewModel: ObservableObject {
     
     var commentPage: Int = 1
     
-    init() {
-
-        print("-->>Object Created")
-    }
-    
     func writeData(context : NSManagedObjectContext) {
         
 //
         if let movie = selectedMovie {
             let newFavorite = Favorites(context: context)
             newFavorite.movie_id = Int64(movie.id)
-            newFavorite.title = movie.title
-            newFavorite.overview = movie.overview
-            newFavorite.release_date = movie.release
-            newFavorite.image = movie.image
-            newFavorite.rating = movie.rating
-            newFavorite.rating_count = Int64(movie.ratingCount)
-    //        newTask.content = content
-            
-            // saving data...
+            newFavorite.liked_date = Date()
             
             do{
-                
                 try context.save()
-                // success means closing view...
-//                thisMovieLoved = true
-
             }
             catch{
                 print(error.localizedDescription)
@@ -109,8 +92,16 @@ class MovieDetailViewModel: ObservableObject {
         }
         
     }
-      
-    deinit {
-        print("-->>\(selectedMovie?.title) OBJECT DESTROYED!!!!")
-    }
+    
+//    func toDate(date: String) -> Date {
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd"
+//        if let result = dateFormatter.date(from: date) {
+//            return result
+//        } else {
+//            return Date()
+//        }
+//
+//    }
+
 }

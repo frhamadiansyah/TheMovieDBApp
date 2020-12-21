@@ -19,7 +19,6 @@ struct MovieListView: View {
                         MovieDetailView(movie: movie),
                         label: {
                             MovieView(movie: movie)
-//                                .shadow(radius: 10 )
                         })
                         .onAppear(perform: {
                             if homeVM.shouldFetchMore(movie: movie) {
@@ -28,8 +27,8 @@ struct MovieListView: View {
                                 }
                             }
                         })
-//                        .foregroundColor(.black)
-                        .padding()
+                        .padding(.vertical, 10)
+                        .padding(.horizontal)
                     
                 }
             }

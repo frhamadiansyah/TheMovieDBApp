@@ -19,21 +19,13 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack {
-//                VStack {
-//                    Spacer()
-//                    Rectangle()
-//                        .ignoresSafeArea()
-//                        .frame(height: UIScreen.main.bounds.height * 0.02)
-//                        .foregroundColor(Color("Primary"))
-//                }
+
                 VStack(spacing: 0) {
                     MovieListView()
                         .disabled(isShow ? true : false)
                         .opacity(isShow ? 0.3 : 1)
                     CategoryButton(isShow: $isShow)
-//                        .edgesIgnoringSafeArea(.bottom)
-//                        .shadow(radius: 5, x: 0, y: -1)
-                        
+
                 }
                 .edgesIgnoringSafeArea(.bottom)
                 .onTapGesture {
@@ -51,7 +43,7 @@ struct ContentView: View {
                                 
                             }
                         )
-            )
+                )
             }
             
         }

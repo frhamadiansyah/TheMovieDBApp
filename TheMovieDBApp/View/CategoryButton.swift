@@ -28,8 +28,6 @@ struct CategoryButton: View {
             .padding(.bottom, safeArea)
             .background(Color("Primary"))
 
-            
-            
         })
         .overlay(
             VStack {
