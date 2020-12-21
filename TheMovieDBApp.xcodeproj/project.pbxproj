@@ -11,6 +11,8 @@
 		7518C9A8258FC5D1007AF209 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7518C9A7258FC5D1007AF209 /* Extension+View.swift */; };
 		7518C9AD258FF063007AF209 /* MovieDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7518C9AC258FF062007AF209 /* MovieDescriptionView.swift */; };
 		7518C9B2258FF4BE007AF209 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7518C9B1258FF4BE007AF209 /* CommentView.swift */; };
+		7518C9C025906AE1007AF209 /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7518C9BF25906AE0007AF209 /* MovieListViewModel.swift */; };
+		7518C9C525906E82007AF209 /* FavoritedMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7518C9C425906E82007AF209 /* FavoritedMovieView.swift */; };
 		752AC773258E6399006B9456 /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AC772258E6399006B9456 /* MovieListView.swift */; };
 		759AF7D9258F082900086077 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759AF7D8258F082900086077 /* MovieDetailViewModel.swift */; };
 		759AF7E1258F14B600086077 /* Extension+Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759AF7E0258F14B600086077 /* Extension+Favorites.swift */; };
@@ -57,6 +59,8 @@
 		7518C9A7258FC5D1007AF209 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
 		7518C9AC258FF062007AF209 /* MovieDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDescriptionView.swift; sourceTree = "<group>"; };
 		7518C9B1258FF4BE007AF209 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
+		7518C9BF25906AE0007AF209 /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
+		7518C9C425906E82007AF209 /* FavoritedMovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritedMovieView.swift; sourceTree = "<group>"; };
 		752AC772258E6399006B9456 /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
 		759AF7D8258F082900086077 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
 		759AF7E0258F14B600086077 /* Extension+Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Favorites.swift"; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 				75D164A9258E9D89004E4A82 /* LovedMoviesView.swift */,
 				7518C9AC258FF062007AF209 /* MovieDescriptionView.swift */,
 				7518C9B1258FF4BE007AF209 /* CommentView.swift */,
+				7518C9C425906E82007AF209 /* FavoritedMovieView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 				75CB889C258DBBEA0045586A /* HomeViewModel.swift */,
 				759AF7D8258F082900086077 /* MovieDetailViewModel.swift */,
 				759AF7E5258F1A6E00086077 /* FavoriteViewModel.swift */,
+				7518C9BF25906AE0007AF209 /* MovieListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -350,6 +356,7 @@
 				7518C9AD258FF063007AF209 /* MovieDescriptionView.swift in Sources */,
 				75CB889D258DBBEA0045586A /* HomeViewModel.swift in Sources */,
 				7518C9A3258FC552007AF209 /* NavigationViewModifier.swift in Sources */,
+				7518C9C025906AE1007AF209 /* MovieListViewModel.swift in Sources */,
 				75CB884E258D91240045586A /* ContentView.swift in Sources */,
 				75CB88A5258DC7D90045586A /* MovieView.swift in Sources */,
 				7518C9A8258FC5D1007AF209 /* Extension+View.swift in Sources */,
@@ -357,6 +364,7 @@
 				75CB8858258D91250045586A /* TheMovieDBApp.xcdatamodeld in Sources */,
 				7518C9B2258FF4BE007AF209 /* CommentView.swift in Sources */,
 				75CB884C258D91240045586A /* TheMovieDBAppApp.swift in Sources */,
+				7518C9C525906E82007AF209 /* FavoritedMovieView.swift in Sources */,
 				75CB8884258D983F0045586A /* APIService.swift in Sources */,
 				75CB88B2258DCC0B0045586A /* CategoryButton.swift in Sources */,
 				75D164AA258E9D89004E4A82 /* LovedMoviesView.swift in Sources */,

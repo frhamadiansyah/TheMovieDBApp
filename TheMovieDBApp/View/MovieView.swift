@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MovieView: View {
+    
     let movie: MovieDetail
     
     var body: some View {
@@ -15,6 +16,7 @@ struct MovieView: View {
             RoundedRectangle(cornerRadius: 10)
                 .foregroundColor(Color(UIColor.systemBackground))
                 .shadow(color: .primary, radius: 5)
+            
             HStack(alignment: .top, spacing: 10) {
                 URLImageView(urlString: movie.image)
                     .cornerRadius(5)

@@ -12,6 +12,8 @@ struct ContentView: View {
     
     @ObservedObject var homeVM = HomeViewModel.shared
     
+    @Environment(\.managedObjectContext) var context
+    
     @State var isShow: Bool = false
     
     var body: some View {
@@ -43,7 +45,7 @@ struct ContentView: View {
                 .navigationBarItems(
                     trailing:
                         NavigationLink(
-                            destination: LovedMoviesView(),
+                            destination: LovedMoviesView( favoriteVM: FavoriteViewModel(managedObjectContext: context)),
                             label: {
                                 Image(systemName: "heart.fill")
                                 

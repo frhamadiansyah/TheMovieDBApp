@@ -15,11 +15,11 @@ struct URLImageView: View {
 
     }
     
-    @State private var isAnimating = false
-    var foreverAnimation: Animation {
-        Animation.linear(duration: 2.0)
-            .repeatForever(autoreverses: false)
-    }
+//    @State private var isAnimating = false
+//    var foreverAnimation: Animation {
+//        Animation.linear(duration: 2.0)
+//            .repeatForever(autoreverses: false)
+//    }
     
     let width = UIScreen.main.bounds.width * 0.4
     
@@ -28,12 +28,14 @@ struct URLImageView: View {
         HStack {
             //            Spacer()
             if imageLoader.image == nil {
-                Image(systemName: "arrow.2.circlepath")
-                    .resizable()
-                    .scaledToFit()
-                    .rotationEffect(Angle(degrees: self.isAnimating ? 360 : 0.0))
-                    .animation(foreverAnimation)
-                    .onAppear { self.isAnimating = true }
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
+//                Image(systemName: "arrow.2.circlepath")
+//                    .resizable()
+//                    .scaledToFit()
+//                    .rotationEffect(Angle(degrees: self.isAnimating ? 360 : 0.0))
+//                    .animation(foreverAnimation)
+//                    .onAppear { self.isAnimating = true }
             } else {
                 Image(uiImage: imageLoader.image!)
                     .resizable()

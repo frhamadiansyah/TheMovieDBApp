@@ -13,7 +13,7 @@ struct LovedMoviesView: View {
     
     @Environment(\.managedObjectContext) var context
     
-//    @ObservedObject var favoriteVM = FavoriteViewModel(managedObjectContext: <#NSManagedObjectContext#>)
+    @ObservedObject var favoriteVM : FavoriteViewModel
     
     
     var body: some View {
@@ -29,14 +29,16 @@ struct LovedMoviesView: View {
                 .padding()
             } else {
                 LazyVStack(alignment: .leading) {
-                    ForEach(favoritedMovie, id: \.self) { movie in
+//                    ForEach(favoritedMovie, id: \.self) { movie in
+                    ForEach(favoriteVM.fav) { movie in
 //                        Text("\(movie.movie_id)")
-                        NavigationLink(
-                            destination:
-                                MovieDetailView(movie: createMovie(movie: movie)),
-                            label: {
-                                MovieView(movie: createMovie(movie: movie))
-                            })
+                        FavoritedMovieView(movie_id: Int(movie.movie_id))
+//                        NavigationLink(
+//                            destination:
+//                                MovieDetailView(movie: movie),
+//                            label: {
+//                                MovieView(movie: movie)
+//                            })
                             .padding()
                     }
                 }
@@ -59,6 +61,6 @@ struct LovedMoviesView: View {
 
 struct LovedMoviesView_Previews: PreviewProvider {
     static var previews: some View {
-        LovedMoviesView()
+        LovedMoviesView(favoriteVM: FavoriteViewModel(managedObjectContext: PersistenceController.shared.container.viewContext))
     }
 }

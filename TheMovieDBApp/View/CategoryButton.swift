@@ -15,9 +15,6 @@ struct CategoryButton: View {
     @Binding var isShow: Bool
     
     var body: some View {
-        //        GeometryReader{ geometry in
-        //            VStack(spacing: 0) {
-        
         Button(action: {
             self.isShow.toggle()
         }, label: {
@@ -45,8 +42,16 @@ struct CategoryButton: View {
                                     homeVM.dbCategory = category
                                     self.isShow.toggle()
                                 }, label: {
-                                    Text(category.rawValue)
-                                        .padding(.vertical, 10)
+                                    HStack {
+
+                                            Image(systemName: "checkmark")
+                                                .foregroundColor(category == homeVM.dbCategory ? .blue : .clear)
+
+                                        Spacer()
+                                        Text(category.rawValue)
+                                            .padding(.vertical, 10)
+                                        Spacer()
+                                    }
                                 })
                                 
                             }
@@ -55,16 +60,13 @@ struct CategoryButton: View {
                     }
                     .background(Color.white)
                     .cornerRadius(5)
-                    .shadow(radius: 5)
+                    .shadow(color: .primary, radius: 10)
                     .padding(.horizontal)
                 }
             }
             .padding(.bottom, safeArea)
             , alignment: .bottom)
-        
-        
-        //            }
-        //        }
+
         
     }
 }
