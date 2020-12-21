@@ -21,6 +21,13 @@ struct MovieListView: View {
                             MovieView(movie: movie)
 //                                .shadow(radius: 10 )
                         })
+                        .onAppear(perform: {
+                            if homeVM.shouldFetchMore(movie: movie) {
+                                homeVM.fetchURL { _ in
+                                    print("fetch \(homeVM.dbCategory.rawValue) page \(homeVM.page) complete")
+                                }
+                            }
+                        })
 //                        .foregroundColor(.black)
                         .padding()
                     

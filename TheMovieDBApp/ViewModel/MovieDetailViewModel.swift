@@ -57,8 +57,8 @@ class MovieDetailViewModel: ObservableObject {
             newFavorite.overview = movie.overview
             newFavorite.release_date = movie.release
             newFavorite.image = movie.image
-//            newFavorite.rating = movie.rating
-//            newFavorite.rating_count = Int64(movie.ratingCount)
+            newFavorite.rating = movie.rating
+            newFavorite.rating_count = Int64(movie.ratingCount)
     //        newTask.content = content
             
             // saving data...
@@ -77,6 +77,17 @@ class MovieDetailViewModel: ObservableObject {
             print("No movie to be saved")
         }
         
+    }
+    
+    func shouldFetchMore(review: Comment) -> Bool {
+        let lastComment = comments.last?.id
+        
+        if review.id == lastComment {
+            commentPage += 1
+            return true
+        } else {
+            return false
+        }
     }
     
     func fetchComment(completion: @escaping ([Comment]) -> Void) {

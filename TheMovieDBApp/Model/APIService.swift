@@ -55,6 +55,8 @@ class APIService {
             urlComponent.path = "/3/movie/top_rated"
         case .upcoming:
             urlComponent.path = "/3/movie/upcoming"
+        case .popular:
+            urlComponent.path = "/3/movie/popular"
         default:
             urlComponent.path = "/3/movie/popular"
         }

@@ -41,6 +41,13 @@ struct MovieDetailView: View {
                 }
                 ForEach(favData.comments) { comment in
                     CommentView(comment: comment)
+                        .onAppear(perform: {
+                            if favData.shouldFetchMore(review: comment) {
+                                favData.fetchComment { _ in
+                                    print("fetch \(movie.title) comment page \(favData.commentPage) complete")
+                                }
+                            }
+                        })
                         .padding()
                     
                 }

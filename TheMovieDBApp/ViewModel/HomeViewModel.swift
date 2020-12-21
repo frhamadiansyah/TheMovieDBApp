@@ -43,6 +43,17 @@ class HomeViewModel: ObservableObject {
         }
     }
     
+    func shouldFetchMore(movie: MovieDetail) -> Bool {
+        let lastMovie = movies.last?.id
+        
+        if movie.id == lastMovie {
+            page += 1
+            return true
+        } else {
+            return false
+        }
+    }
+    
     func fetchURL(completion: @escaping ([MovieDetail]) -> Void) {
         if page == 1 {
             self.movies = []

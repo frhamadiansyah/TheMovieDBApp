@@ -9,11 +9,11 @@ import SwiftUI
 
 struct LovedMoviesView: View {
     @FetchRequest(fetchRequest: Favorites.fetchAllID)
-    var favoritedMovie: FetchedResults<Favorites> 
-    
-//    @ObservedObject var favoriteVM = FavoriteViewModel(managedObjectContext: <#NSManagedObjectContext#>)
+    var favoritedMovie: FetchedResults<Favorites>
     
     @Environment(\.managedObjectContext) var context
+    
+//    @ObservedObject var favoriteVM = FavoriteViewModel(managedObjectContext: <#NSManagedObjectContext#>)
     
     
     var body: some View {
